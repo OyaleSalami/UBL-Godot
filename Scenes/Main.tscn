@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://b5nr07bgby6vh"]
+
+[ext_resource type="Shader" uid="uid://dip7tel360gj5" path="res://Shaders/TextTexture.gdshader" id="1_idj7w"]
+[ext_resource type="FontFile" uid="uid://d04lkxulab332" path="res://Fonts/Compacta.ttf" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://dwsboyrpsvtik" path="res://Textures/103916.jpg" id="2_kln2b"]
+[ext_resource type="Environment" uid="uid://bxte3sw0ieisi" path="res://Misc/WorldEnvironment.tres" id="4_rgh2o"]
+[ext_resource type="FontFile" uid="uid://bemgfqkuvyepq" path="res://Fonts/Rockstar-ExtraBold.otf" id="4_v1gob"]
+[ext_resource type="Script" uid="uid://d0ek8hpyyqu0l" path="res://Scripts/Sky.gd" id="6_jw32o"]
+[ext_resource type="Texture2D" uid="uid://dd0rf8c3ajk81" path="res://Textures/plaster_wall_03_4k/plaster_wall_03_basecolor_4k.png" id="7_grg3l"]
+[ext_resource type="Texture2D" uid="uid://ctjhfslnxnkx6" path="res://Textures/plaster_wall_03_4k/plaster_wall_03_ambientocclusion_4k.png" id="8_frkhe"]
+[ext_resource type="Texture2D" uid="uid://y24jc5y8oa8a" path="res://Textures/plaster_wall_03_4k/plaster_wall_03_height_4k.png" id="9_1p5hy"]
+[ext_resource type="Texture2D" uid="uid://by235v7i1l3lq" path="res://Textures/plaster_wall_03_4k/plaster_wall_03_metallic_4k.png" id="10_h1m7h"]
+[ext_resource type="Texture2D" uid="uid://bsnioumnletmm" path="res://Textures/plaster_wall_03_4k/plaster_wall_03_normal_gl_4k.png" id="11_erwvk"]
+[ext_resource type="Texture2D" uid="uid://da2vdr1hlnubp" path="res://Textures/plaster_wall_03_4k/plaster_wall_03_roughness_4k.png" id="12_2w5on"]
+[ext_resource type="Texture2D" uid="uid://dljythri8jssj" path="res://Textures/bark_08_2k/bark_08_baseColor_2k.png" id="13_frkhe"]
+[ext_resource type="Texture2D" uid="uid://y56cmtsuaqly" path="res://Textures/bark_08_2k/bark_08_height_2k.png" id="14_2w5on"]
+[ext_resource type="Texture2D" uid="uid://61g4r5bgsrj7" path="res://Textures/bark_08_2k/bark_08_ambientOcclusion_2k.png" id="14_346fj"]
+[ext_resource type="Texture2D" uid="uid://cj52pjko4usvw" path="res://Textures/bark_08_2k/bark_08_metallic_2k.png" id="14_h1m7h"]
+[ext_resource type="Texture2D" uid="uid://dg85itg3okkg6" path="res://Textures/bark_08_2k/bark_08_normal_gl_2k.png" id="15_2w5on"]
+[ext_resource type="Texture2D" uid="uid://cdm0wre0bak0s" path="res://Textures/bark_08_2k/bark_08_roughness_2k.png" id="15_erwvk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r150o"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1gob"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r150o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kln2b"]
+shader = ExtResource("1_idj7w")
+shader_parameter/text_texture = ExtResource("2_kln2b")
+shader_parameter/tint_color = Color(1, 0.85490197, 0.28235295, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50glp"]
+albedo_texture = ExtResource("7_grg3l")
+metallic = 1.0
+metallic_texture = ExtResource("10_h1m7h")
+roughness_texture = ExtResource("12_2w5on")
+normal_enabled = true
+normal_texture = ExtResource("11_erwvk")
+ao_enabled = true
+ao_texture = ExtResource("8_frkhe")
+heightmap_enabled = true
+heightmap_texture = ExtResource("9_1p5hy")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rgh2o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1p5hy"]
+diffuse_mode = 2
+specular_mode = 1
+albedo_texture = ExtResource("13_frkhe")
+metallic = 1.0
+metallic_texture = ExtResource("14_h1m7h")
+roughness_texture = ExtResource("15_erwvk")
+normal_enabled = true
+normal_texture = ExtResource("15_2w5on")
+ao_enabled = true
+ao_texture = ExtResource("14_346fj")
+heightmap_enabled = true
+heightmap_texture = ExtResource("14_2w5on")
+
+[node name="Control" type="Control" unique_id=1837254818]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="." unique_id=665769497]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r150o")
+
+[node name="Title" type="Panel" parent="Background" unique_id=2087799959]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.592
+anchor_right = 0.9
+anchor_bottom = 0.82600003
+offset_top = -0.23999023
+offset_bottom = 0.27996826
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1gob")
+
+[node name="Base" type="Label" parent="Background/Title" unique_id=216885461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.85490197, 0.28235295, 1)
+theme_override_colors/font_shadow_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_r150o")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxTexture_r150o")
+text = "Un-BorderedLands 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Overlay" type="Label" parent="Background/Title" unique_id=1733362862]
+material = SubResource("ShaderMaterial_kln2b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_r150o")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxTexture_r150o")
+text = "Un-BorderedLands 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Tip" type="Label" parent="Background" unique_id=756206689]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.836
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.079956055
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_fonts/font = ExtResource("4_v1gob")
+theme_override_font_sizes/font_size = 32
+text = "Tap Anywhere To Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World" type="Node3D" parent="." unique_id=561501334]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=968118831]
+environment = ExtResource("4_rgh2o")
+script = ExtResource("6_jw32o")
+
+[node name="Planet 1" type="MeshInstance3D" parent="World" unique_id=1842278938]
+transform = Transform3D(-0.27310953, 0, -9.99627, 0, 10, 0, 9.99627, 0, -0.27310953, -8.847947, 0, -15.722714)
+material_override = SubResource("StandardMaterial3D_50glp")
+mesh = SubResource("SphereMesh_rgh2o")
+
+[node name="Planet 2" type="MeshInstance3D" parent="World" unique_id=845686911]
+transform = Transform3D(-0.27310953, 0, -9.99627, 0, 10, 0, 9.99627, 0, -0.27310953, 8.847946, 0, -15.239242)
+material_override = SubResource("StandardMaterial3D_1p5hy")
+mesh = SubResource("SphereMesh_rgh2o")
+
+[node name="Camera3D" type="Camera3D" parent="World" unique_id=2025109630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.979947, 6.839484)
+current = true
+fov = 72.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=89416425]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 5.734436, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="World" unique_id=48062875]
+transform = Transform3D(1, 0, 0, 0, -0.50000006, -0.8660254, 0, 0.8660254, -0.50000006, 0, 5.734436, 0)

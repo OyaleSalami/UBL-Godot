@@ -1,0 +1,17 @@
+[gd_resource type="Environment" format=3 uid="uid://bxte3sw0ieisi"]
+
+[ext_resource type="Texture2D" uid="uid://b3366ece7qvqf" path="res://Textures/Sky/sky_77_2k.png" id="1_g751w"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vsvqe"]
+panorama = ExtResource("1_g751w")
+
+[sub_resource type="Sky" id="Sky_6mgm2"]
+sky_material = SubResource("PanoramaSkyMaterial_vsvqe")
+
+[resource]
+background_mode = 2
+background_color = Color(0, 0.73333335, 0, 1)
+sky = SubResource("Sky_6mgm2")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
